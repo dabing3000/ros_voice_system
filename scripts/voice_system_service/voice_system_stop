@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Copyright: 2016-2018 ROS小课堂 www.corvin.cn
+# Author: corvin
+# Description: Stop voice system ros node.
+# History:
+#    20181129: initial this bash file.
+
+source /opt/ros/kinetic/setup.bash
+
+
+pid=`ps -ef|grep voice_bringup.launch|grep -v grep|awk '{print $2}'`
+if [ -n "$pid" ]
+then
+    rosnode kill /iflytek_asr_node
+    rosnode kill /iflytek_tts_node
+    rosnode kill /pocketSphinx_recognizer_node
+    rosnode kill /save_response_node
+    rosnode kill /sphinx_wakeup_node
+    rosnode kill /tuling_nlu_node
+    rosnode kill /voice_move_node
+
+    echo "kill voice system bringup pid:" $pid
+    kill -9 $pid
+fi
+
+exit 0

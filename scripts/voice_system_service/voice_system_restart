@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Copyright: 2016-2018 ROS小课堂 www.corvin.cn
+# Author: corvin
+# Description: when restart voice system node, this bash file should
+#  be executed.
+# History:
+#    20181129: initial this bash file.
+
+pid=`ps -ef|grep voice_bringup.launch|grep -v grep|awk '{print $2}'`
+if [ -n "$pid" ]
+then
+    /usr/sbin/voice_system_stop
+    sleep 3
+fi
+
+/usr/sbin/voice_system_start
+
+exit 0

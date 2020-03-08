@@ -1,0 +1,13 @@
+[Unit]
+Description=power on startup voice system ros node - by corvin
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+ExecStart=/usr/sbin/voice_system_start
+ExecStop=/usr/sbin/voice_system_stop
+ExecRestart=/usr/sbin/voice_system_restart
+
+[Install]
+WantedBy=multi-user.target

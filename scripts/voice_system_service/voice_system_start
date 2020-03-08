@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Copyright: 2016-2018 ROS小课堂 www.corvin.cn
+# Author: corvin
+# Description: when poweron auto launch voice system node.
+# History:
+#    20181129: initial this bash file.
+
+source /opt/ros/kinetic/setup.bash
+source /home/corvin/ros_voice_system/devel/setup.bash
+
+roslaunch voice_bringup voice_bringup.launch
+
+exit 0
